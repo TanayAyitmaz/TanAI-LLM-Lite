@@ -41,15 +41,15 @@ Model Params: 42.08 M
 ## Hardware Feasibility *(30M-50M)*
 The TanAI-Lite Model has ~42,082,816M parameters. This parameter structure can be modified with TanAILiteConfig. Training was performed smoothly with 16GB VRAM in current tests. Training can be performed with 12GB VRAM using lower training parameters (low Batch-Size).
 Recommended:
-- 3090 24GB (good training output)
-- 4090 24GB (good training output)
-- 5070TI 16GB (standard)
-- 5080 16GB (standard)
-- 5090 32GB (much better training output)
+- **3090 24GB** *(good training output)*
+- **4090 24GB** *(good training output)*
+- **5070TI 16GB** *(standard)*
+- **5080 16GB** *(standard)*
+- **5090 32GB** *(much better training output)*
 
 Yes, this setup is trainable on single GPU with RTX 3090/4090/5090 class cards.
-- 24GB VRAM (3090/4090): comfortable for 30M-50M with AdamW + mixed precision.
-- 16GB VRAM (some 50xx SKUs): still workable with lower batch + grad accumulation.
+- 24GB VRAM *(3090/4090)*: comfortable for 30M-50M with AdamW + mixed precision.
+- 16GB VRAM *(some 50xx SKUs)*: still workable with lower batch + grad accumulation.
 - Main pressure is activation memory (sequence length), not raw parameter count.
 
 Practical guidance:
@@ -91,7 +91,8 @@ Encoder file: https://tanai.xyz/tanai/encoder_best.pt
 We recommend using encoder outputs that exceed values such as retrieval_at1 > 0.7, mrr > 0.50, mean_margin > 0.05 in the encoder reports. (This encoder file was trained for 300 steps for testing.)
 
 ## Reports
-You can review the JSON files in the **data/reports** folder for the training reports.
+> [!NOTE]
+> You can review the JSON files in the **data/reports** folder for the training reports.
 
 ## Docs
 - 00_scope.md
