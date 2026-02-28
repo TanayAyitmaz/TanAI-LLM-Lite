@@ -1,8 +1,8 @@
 # TanAILite
 
 ## TanaAI ve TanAI-Lite nedir?
-**TanAI-Lite, TanAI mimarisinin açık kaynaklı sürümüdür. Gerçek model yapısının GPT sürümü olacak şekilde basitleştirilmiştir.**
-TanAI çekirdeğinde birçok modern yapı kullanır ve Transformer çekirdeğinde Fused, Ecv ve Chronos projeksiyonlarına sahiptir.. 
+**TanAI-Lite, TanAI mimarisinin basitleştirilmiş açık kaynaklı sürümüdür. Gerçek model yapısının (GAT - Generative Adaptive Transformer), GPT sürümü halinde basitleştirilmiş / sadeleştirilmiş versiyonudur.**<br><br>
+TanAI çekirdeğinde birçok modern yapı kullanır ve Transformer çekirdeğinde Fused, Ecv ve Chronos projeksiyonlarına sahiptir. *(Lite modelde bu mimariler yoktur)*
 - **Fused**: Konu ve anlamsal bağlam tutarlılığı için 256D vektör projeksiyonu.
 - **Ecv** *(emotional conditioning vector)*: Duygusal bağlam tutarlılığı için 64D vektör projeksiyonu. Ecv için Robert Plutchik'in 8 duygu yapısı kullanıldı ve binlerce duygusal cümle vektörlere dönüştürüldü. Bu veri kümesinden 48D duygu vektörü oluşturulur ve Duygusal Kullanıcı Profilinden 16D vektör oluşturulur..
 - **Chronos**: Zaman frekanslarını öğrenmek için 32D vektör projeksiyonu. LLM'ler zaman serilerini bilmezler ve promptlardan net öğrenim sağlayamazlar. Chronos, geçmişi algılamak ve geleceği tahmin etmek için tasarlanmıştır.
