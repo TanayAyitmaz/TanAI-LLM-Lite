@@ -88,17 +88,17 @@ Modelin çıkarım testlerini gerçekleştirin.
 > Temel model sadece 5000 adımda eğitilmiştir ve henüz dili öğrenmemiştir. Lütfen en az 80-100 bin adımda eğitin ve çıkarım kontrollerini gerçekleştirin.
 > 
 > **Encoder dosyası**: https://tanai.xyz/tanai/encoder_best.pt<br>
-> Encoder raporlarında retrieval_at1 > 0,7, mrr > 0,50, mean_margin > 0,05 gibi değerleri aşan enkoder çıkışlarının kullanılmasını öneririz. *(Bu enkoder dosyası, test için 300 adım boyunca eğitilmiştir.)*
+> Encoder raporlarında retrieval_at1 > 0.7, mrr > 0.50, mean_margin > 0.05 gibi değerleri aşan encoder çıkışlarının kullanılmasını öneririz. *(Bu encoder dosyası, test için 300 adım boyunca eğitilmiştir.)*
 
 ## Raporlar
 > [!NOTE]
 > Eğitim raporları için **data/reports** klasöründeki JSON dosyalarını inceleyebilirsiniz.
 
 ## Dokümanlar
-- 00_scope.md
-- 01_architecture.md
-- 02_training_flow.md
-- 03_inference_flow.md
-- 04_run.md
-- 05_tanai_lite_info.md
-- 06_corpus_selection.md
+- 00_scope.md *(TanAILite basit kapsamı)*
+- 01_architecture.md *(TanAILite mimarisi)*
+- 02_training_flow.md *(Eğitim akışı)*
+- 03_inference_flow.md *(Model çıkarım akışı)*
+- 04_run.md *(Adım adım çalıştırma akışı)*
+- 05_tanai_lite_info.md *(Modelin çıktısı ve parametre sayısı)*
+- 06_corpus_selection.md *(Hangi corpus ile eğitim yapmalıyım?)*
