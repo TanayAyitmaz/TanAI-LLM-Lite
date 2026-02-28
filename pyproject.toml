@@ -1,0 +1,34 @@
+[project]
+name = "tanailite"
+version = "0.1.0"
+description = "Minimal tokenizer-encoder-gpt training and inference stack. Developed by TanAI - https://tanai.xyz"
+requires-python = ">=3.10"
+dependencies = [
+  "torch>=2.10",
+  "numpy>=2.4.2",
+  "sentencepiece>=0.2.1",
+  "tqdm>=4.67",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0",
+]
+
+[project.scripts]
+tanailite-smoke = "tanailite.tools.run_smoke:main"
+tanailite-repro-mini-run = "tanailite.tools.repro_mini_run:main"
+tanailite-corpus-slicer = "tanailite.utils.corpus_slicer:main"
+tanailite-train-tokenizer = "tanailite.train.train_tokenizer:main"
+tanailite-train-encoder = "tanailite.train.train_encoder:main"
+tanailite-train-base = "tanailite.train.train_base:main"
+tanailite-train-sft = "tanailite.train.train_sft:main"
+tanailite-infer = "tanailite.infer.run_infer:main"
+
+[tool.setuptools]
+package-dir = {"" = "."}
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["tanailite*"]
+namespaces = true

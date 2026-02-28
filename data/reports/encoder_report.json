@@ -1,0 +1,143 @@
+{
+  "ok": true,
+  "created_at_utc": "2026-02-28T07:52:09.521366+00:00",
+  "device": "cuda",
+  "paths": {
+    "tokenizer_model": "tanai/lite/data/tokenizer/tanai-tokenizer.model",
+    "out_ckpt": "tanai/lite/data/encoder/encoder_latest.pt",
+    "out_best": "tanai/lite/data/encoder/encoder_best.pt",
+    "report_out": "tanai/lite/data/encoder/encoder_report.json"
+  },
+  "data": {
+    "triplets_from_jsonl": 0,
+    "triplets_from_corpus": 30000,
+    "corpus_files_used": 1,
+    "corpus_lines_used": 41693137,
+    "triplets_total": 30000,
+    "triplets_train": 27000,
+    "triplets_holdout": 3000,
+    "curated_eval_cases": 12
+  },
+  "model_config": {
+    "vocab_size": 32000,
+    "d_model": 512,
+    "max_seq_len": 1024,
+    "pad_id": 3,
+    "n_layers": 4,
+    "n_heads": 8,
+    "ffn_dim": 2048,
+    "dropout": 0.0,
+    "out_dim": 512
+  },
+  "training": {
+    "start_step": 0,
+    "end_step": 300,
+    "best_step": 300,
+    "best_score": 1.22138047,
+    "quality_gate": {
+      "min_pair_acc": 0.6,
+      "min_retrieval_at1": 0.25,
+      "min_mrr": 0.4,
+      "quality_ok": true,
+      "quality_gate_disabled": false
+    }
+  },
+  "final_eval": {
+    "step": 300,
+    "curated_triplet": {
+      "count": 12,
+      "pair_acc": 0.91666667,
+      "mean_margin": 0.18017663
+    },
+    "curated_retrieval": {
+      "count": 12,
+      "retrieval_at1": 0.41666667,
+      "mrr": 0.57554714
+    },
+    "holdout_triplet": {
+      "count": 3000,
+      "pair_acc": 1.0,
+      "mean_margin": 0.88715559
+    },
+    "holdout_retrieval": {
+      "count": 3000,
+      "retrieval_at1": 0.99866667,
+      "mrr": 0.99919444
+    },
+    "score": 1.22138047
+  },
+  "history": [
+    {
+      "step": 100,
+      "curated_triplet": {
+        "count": 12,
+        "pair_acc": 0.66666667,
+        "mean_margin": 0.10890524
+      },
+      "curated_retrieval": {
+        "count": 12,
+        "retrieval_at1": 0.25,
+        "mrr": 0.38122563
+      },
+      "holdout_triplet": {
+        "count": 3000,
+        "pair_acc": 1.0,
+        "mean_margin": 0.84065065
+      },
+      "holdout_retrieval": {
+        "count": 3000,
+        "retrieval_at1": 0.999,
+        "mrr": 0.99936111
+      },
+      "score": 0.7978923
+    },
+    {
+      "step": 200,
+      "curated_triplet": {
+        "count": 12,
+        "pair_acc": 0.75,
+        "mean_margin": 0.10087751
+      },
+      "curated_retrieval": {
+        "count": 12,
+        "retrieval_at1": 0.25,
+        "mrr": 0.37764042
+      },
+      "holdout_triplet": {
+        "count": 3000,
+        "pair_acc": 1.0,
+        "mean_margin": 0.91837376
+      },
+      "holdout_retrieval": {
+        "count": 3000,
+        "retrieval_at1": 0.99833333,
+        "mrr": 0.99902778
+      },
+      "score": 0.81514042
+    },
+    {
+      "step": 300,
+      "curated_triplet": {
+        "count": 12,
+        "pair_acc": 0.91666667,
+        "mean_margin": 0.18017663
+      },
+      "curated_retrieval": {
+        "count": 12,
+        "retrieval_at1": 0.41666667,
+        "mrr": 0.57554714
+      },
+      "holdout_triplet": {
+        "count": 3000,
+        "pair_acc": 1.0,
+        "mean_margin": 0.88715559
+      },
+      "holdout_retrieval": {
+        "count": 3000,
+        "retrieval_at1": 0.99866667,
+        "mrr": 0.99919444
+      },
+      "score": 1.22138047
+    }
+  ]
+}

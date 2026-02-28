@@ -1,0 +1,19 @@
+{
+  "tokenizer_version": "v1",
+  "model_path": "tanai/lite/data/tokenizer/tanai-tokenizer.model",
+  "vocab_size": 32000,
+  "special_ids": {
+    "unk_id": 0,
+    "bos_id": 1,
+    "eos_id": 2,
+    "pad_id": 3
+  },
+  "config": {
+    "add_bos": true,
+    "add_eos": true
+  },
+  "extra": {
+    "report_path": "tanai/lite/data/tokenizer/tanai-tokenizer.report.json",
+    "trained_at_utc": "2026-02-28T07:46:52.267513+00:00"
+  }
+}

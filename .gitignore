@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+.env
+artifacts/
+checkpoints/
+logs/
+.DS_Store
+data/encoder/encoder_best.pt
+data/model/base_best.pt
