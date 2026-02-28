@@ -3,37 +3,37 @@
 ## What is TanaAI and TanAI-Lite
 **TanAI-Lite is the open-source version of the TanAI architecture. It is an open-source release of TanAI, simplified to be a GPT version of the actual model structure.**
 TanAI utilizes many modern structures and has Fused, Ecv, and Chronos projections in the Transformer core. 
-Fused: 256D vector projection for semantic context consistency.
-Ecv (emotional conditioning vector): 64D vector projection for emotional context consistency. Robert Plutchik's 8 emotion structure was used for Ecv, and thousands of emotional sentences were converted into vectors.  A 48D vector is created from this dataset, and a 16D vector is created from the Emotional User Profile.
-Chronos: 32D vector projection for learning time frequencies. LLMs do not know time series and cannot learn from external prompts. Chronos was designed to perceive the past and predict the future.
+- **Fused**: 256D vector projection for semantic context consistency.
+- **Ecv** *(emotional conditioning vector)*: 64D vector projection for emotional context consistency. Robert Plutchik's 8 emotion structure was used for Ecv, and thousands of emotional sentences were converted into vectors. A 48D vector is created from this dataset, and a 16D vector is created from the Emotional User Profile.
+-**Chronos**: 32D vector projection for learning time frequencies. LLMs do not know time series and cannot learn from external prompts. Chronos was designed to perceive the past and predict the future.
 
-SwiGLU was used as the activation function in TanAI. GeLU was used for Tanai-Lite. 
-AdaRMSNorm and ada_proj were used for normalization in TanAI. RMSNorm was used for Tanai-Lite. 
-TanAI is a modular LLM, not monolithic, and all decisions are observable with GlassBox - Telemetry.
-Lite is a version where many extra features have been simplified and released as open-source.
+SwiGLU was used as the activation function in TanAI. GeLU was used for Tanai-Lite.<br> 
+AdaRMSNorm and ada_proj were used for normalization in TanAI. RMSNorm was used for Tanai-Lite.<br> 
+TanAI is a modular LLM, not monolithic, and all decisions are observable with **GlassBox - Telemetry**.<br>
+Lite is a version where many extra features have been simplified and released as open-source.<br>
 
 ## TanAI-Lite Config
 Minimal open-source training and inference stack inspired by TanAI.
 
- Model: TanAILiteGPT(
-    (tok_emb): Embedding(32000, 512)
-    (pos_emb): Embedding(1024, 512)
-    (blocks): ModuleList(
-        (0-7): 8 x TanAILiteBlock(
-            (norm_attn): TanAIRMSNorm()
-            (q_proj): Linear(in_features=512, out_features=512, bias=False)
-            (k_proj): Linear(in_features=512, out_features=512, bias=False)
-            (v_proj): Linear(in_features=512, out_features=512, bias=False)
-            (o_proj): Linear(in_features=512, out_features=512, bias=False)
-            (norm_mlp): TanAIRMSNorm()
-            (ff_up): Linear(in_features=512, out_features=2048, bias=False)
-            (ff_down): Linear(in_features=2048, out_features=512, bias=False)
-            (dropout): Dropout(p=0.0, inplace=False)
-        )
-    )
-    (norm): TanAIRMSNorm()
-    (lm_head): Linear(in_features=512, out_features=32000, bias=False)
-)
+ Model: TanAILiteGPT(<br>
+    (tok_emb): Embedding(32000, 512)<br>
+    (pos_emb): Embedding(1024, 512)<br>
+    (blocks): ModuleList(<br>
+        (0-7): 8 x TanAILiteBlock(<br>
+            (norm_attn): TanAIRMSNorm()<br>
+            (q_proj): Linear(in_features=512, out_features=512, bias=False)<br>
+            (k_proj): Linear(in_features=512, out_features=512, bias=False)<br>
+            (v_proj): Linear(in_features=512, out_features=512, bias=False)<br>
+            (o_proj): Linear(in_features=512, out_features=512, bias=False)<br>
+            (norm_mlp): TanAIRMSNorm()<br>
+            (ff_up): Linear(in_features=512, out_features=2048, bias=False)<br>
+            (ff_down): Linear(in_features=2048, out_features=512, bias=False)<br>
+            (dropout): Dropout(p=0.0, inplace=False)<br>
+        )<br>
+    )<br>
+    (norm): TanAIRMSNorm()<br>
+    (lm_head): Linear(in_features=512, out_features=32000, bias=False)<br>
+)<br>
 
 ## Model parameters *(tied)*
 Model Params: 42.08 M
