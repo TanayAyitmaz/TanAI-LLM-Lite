@@ -15,25 +15,23 @@ Lite is a version where many extra features have been simplified and released as
 ## TanAI-Lite Config
 Minimal open-source training and inference stack inspired by TanAI.
 
- Model: TanAILiteGPT(<br>
- _   (tok_emb): Embedding(32000, 512)<br>
-  _  (pos_emb): Embedding(1024, 512)<br>
-   _ (blocks): ModuleList(<br>
-    _    (0-7): 8 x TanAILiteBlock(<br>
-     _       (norm_attn): TanAIRMSNorm()<br>
-            (q_proj): Linear(in_features=512, out_features=512, bias=False)<br>
-            (k_proj): Linear(in_features=512, out_features=512, bias=False)<br>
-            (v_proj): Linear(in_features=512, out_features=512, bias=False)<br>
-            (o_proj): Linear(in_features=512, out_features=512, bias=False)<br>
-            (norm_mlp): TanAIRMSNorm()<br>
-            (ff_up): Linear(in_features=512, out_features=2048, bias=False)<br>
-            (ff_down): Linear(in_features=2048, out_features=512, bias=False)<br>
-            (dropout): Dropout(p=0.0, inplace=False)<br>
-        )<br>
-    )<br>
-    (norm): TanAIRMSNorm()<br>
-    (lm_head): Linear(in_features=512, out_features=32000, bias=False)<br>
-)<br>
+Model:<br> 
+**TanAILiteGPT**(<br>
+&emsp;(tok_emb): Embedding(32000, 512)<br>
+&emsp;(pos_emb): Embedding(1024, 512)<br>
+&emsp;(blocks): ModuleList(<br>
+&emsp;&emsp;(0-7): 8 x TanAILiteBlock(<br>
+&emsp;&emsp;&emsp;(norm_attn): TanAIRMSNorm()<br>
+&emsp;&emsp;&emsp;(q_proj): Linear(in_features=512, out_features=512, bias=False)<br>
+&emsp;&emsp;&emsp;(k_proj): Linear(in_features=512, out_features=512, bias=False)<br>
+&emsp;&emsp;&emsp;(v_proj): Linear(in_features=512, out_features=512, bias=False)<br>
+&emsp;&emsp;&emsp;(o_proj): Linear(in_features=512, out_features=512, bias=False)<br>
+&emsp;&emsp;&emsp;(norm_mlp): TanAIRMSNorm()<br>
+&emsp;&emsp;&emsp;(ff_up): Linear(in_features=512, out_features=2048, bias=False)<br>
+&emsp;&emsp;&emsp;(ff_down): Linear(in_features=2048, out_features=512, bias=False)<br>
+&emsp;&emsp;&emsp;(dropout): Dropout(p=0.0, inplace=False)))<br>
+&emsp;(norm): TanAIRMSNorm()<br>
+&emsp;(lm_head): Linear(in_features=512, out_features=32000, bias=False))<br>
 
 ## Model parameters *(tied)*
 Model Params: 42.08 M
@@ -66,29 +64,31 @@ Practical guidance:
 - Single-command inference
 
 ## Core CLIs
-Download the Corpus in your desired language via HF and split the Corpus for testing.
 - `tanailite-corpus-slicer`
-Train a 32k Vocab Tokenizer with the Corpus dataset.
+Download the Corpus in your desired language via HF and split the Corpus for testing.
 - `tanailite-train-tokenizer`
-Train the Encoder with your tokenizer and corpus dataset. (For RAG and embedding vector generation)
+Train a 32k Vocab Tokenizer with the Corpus dataset.
 - `tanailite-train-encoder`
-You can fully train your model. (The base model is trained for 5k steps in the test command; you can achieve much better results by extending this training.)
+Train the Encoder with your tokenizer and corpus dataset. *(For RAG and embedding vector generation)*
 - `tanailite-train-base`
-Give your model personality. Download an instruction SFT dataset via HF and train your model.
+You can fully train your model. *(The base model is trained for 5k steps in the test command; you can achieve much better results by extending this training.)*
 - `tanailite-train-sft`
-Perform the model's inference tests.
+Give your model personality. Download an instruction SFT dataset via HF and train your model.
 - `tanailite-infer`
+Perform the model's inference tests.
 
 ## How do I run it?
-Development environment on Python 3.10 and above.
-You can follow the instructions and commands in the **docs/04_run.md** file.
+> [!TIP]
+> Development environment on Python 3.10 and above.
+> You can follow the instructions and commands in the **docs/04_run.md** file.
 
 ## Base Model and Encoder Files
-Base Model file: https://tanai.xyz/tanai/base_best.pt
-The base model has only been trained on 5000 steps and has not yet learned the language. Please train it on at least 80-100k steps and perform inference checks.
-
-Encoder file: https://tanai.xyz/tanai/encoder_best.pt
-We recommend using encoder outputs that exceed values such as retrieval_at1 > 0.7, mrr > 0.50, mean_margin > 0.05 in the encoder reports. (This encoder file was trained for 300 steps for testing.)
+> [!IMPORTANT]
+> **Base Model file**: https://tanai.xyz/tanai/base_best.pt<br>
+> The base model has only been trained on 5000 steps and has not yet learned the language. Please train it on at least 80-100k steps and perform inference checks.
+> 
+> **Encoder file**: https://tanai.xyz/tanai/encoder_best.pt<br>
+> We recommend using encoder outputs that exceed values such as retrieval_at1 > 0.7, mrr > 0.50, mean_margin > 0.05 in the encoder reports. *(This encoder file was trained for 300 steps for testing.)*
 
 ## Reports
 > [!NOTE]
