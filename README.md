@@ -1,5 +1,6 @@
-## TanAILite
-# What is TanaAI and TanAI-Lite
+# TanAILite
+
+## What is TanaAI and TanAI-Lite
 **TanAI-Lite is the open-source version of the TanAI architecture. It is an open-source release of TanAI, simplified to be a GPT version of the actual model structure.**
 TanAI utilizes many modern structures and has Fused, Ecv, and Chronos projections in the Transformer core. 
 Fused: 256D vector projection for semantic context consistency.
@@ -34,7 +35,7 @@ Model: TanAILiteGPT(
   (lm_head): Linear(in_features=512, out_features=32000, bias=False)
 )
 
-# Model parameters (tied)
+## Model parameters *(tied)*
 Model Params: 42.08 M
 
 ## Hardware Feasibility (30M-50M)
@@ -82,7 +83,7 @@ Perform the model's inference tests.
 Development environment on Python 3.10 and above.
 You can follow the instructions and commands in the **docs/04_run.md** file.
 
-# Base Model and Encoder Files
+## Base Model and Encoder Files
 Base Model file: https://tanai.xyz/tanai/base_best.pt
 The base model has only been trained on 5000 steps and has not yet learned the language. Please train it on at least 80-100k steps and perform inference checks.
 
