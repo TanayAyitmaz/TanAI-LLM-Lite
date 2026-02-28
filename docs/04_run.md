@@ -1,23 +1,23 @@
-# 0) Install (once)
+## 0) Install
 python -m pip install -e .[dev]
 
-# 1) Quick QA (optional)
-python -m tanailite.tools.run_smoke
+## 1) Quick QA (optional)
+python -m tanailite.tools.run_smoke<br>
 python -m tanailite.tools.repro_mini_run
 
-# Common paths
-DATA=./data
-TOKENIZER=./data/tokenizer
-CORPUS=./data/corpus
-ENCODER=./data/encoder
-MODEL=./data/model
-SFT=./data/sft/
+## Common paths
+DATA=./data<br>
+TOKENIZER=./data/tokenizer<br>
+CORPUS=./data/corpus<br>
+ENCODER=./data/encoder<br>
+MODEL=./data/model<br>
+SFT=./data/sft/<br>
 
 mkdir -p $DATA/tokenizer $DATA/encoder $DATA/model $DATA/sft
 
-# Optional control = PYTHONPATH=/home/lite
+*Optional control = PYTHONPATH=/home/lite*
 
-# 2) Tokenizer
+## 2) Tokenizer
 python -m tanailite.train.train_tokenizer \
   --corpus-dir "$CORPUS" \
   --corpus-glob "*.txt" \
@@ -28,7 +28,7 @@ python -m tanailite.train.train_tokenizer \
   --character-coverage 0.9995 \
   --num-threads 16
 
-# 3) Encoder
+## 3) Encoder
 python -m tanailite.train.train_encoder \
   --tokenizer-model "$TOKENIZER/tanai-tokenizer.model" \
   --corpus-dir "$CORPUS" \
@@ -48,7 +48,7 @@ python -m tanailite.train.train_encoder \
   --out-best "$ENCODER/encoder_best.pt" \
   --report-out "$ENCODER/encoder_report.json"
 
-# 4) Base Model
+## 4) Base Model
 python -m tanailite.train.train_base \
   --tokenizer-model "$TOKENIZER/tanai-tokenizer.model" \
   --train-data "$CORPUS" \
@@ -68,7 +68,7 @@ python -m tanailite.train.train_base \
   --out-best "$MODEL/base_best.pt" \
   --report-out "$MODEL/base_report.json"
 
-# 5) SFT 
+## 5) SFT 
 python -m tanailite.train.train_sft \
   --tokenizer-model "$TOKENIZER/tanai-tokenizer.model" \
   --base-ckpt "$MODEL/base_best.pt" \
@@ -84,7 +84,7 @@ python -m tanailite.train.train_sft \
   --out-best "$SFT/sft_best.pt" \
   --report-out "$SFT/sft_report.json"
 
-# 6) Inference
+## 6) Inference
 python -m tanailite.infer.run_infer \
   --tokenizer-model "$TOKENIZER/tanai-tokenizer.model" \
   --model-ckpt "$SFT/sft_best.pt" \
@@ -95,3 +95,5 @@ python -m tanailite.infer.run_infer \
   --top-p 0.95 \
   --max-new-tokens 128 \
   --print-meta
+
+  *You can review the JSON files under data/reports for the training reports of the Tokenizer, Encoder, and Base model.*
